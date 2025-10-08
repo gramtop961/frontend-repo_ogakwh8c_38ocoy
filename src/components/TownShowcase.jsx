@@ -1,42 +1,37 @@
-import { Mountain, Snowflake, Trees } from 'lucide-react';
+import React from 'react';
+import { MapPin, Mountain, Trees } from 'lucide-react';
 
-const features = [
-  {
-    icon: Mountain,
-    title: 'Snowy Peaks',
-    desc: 'Crisp air, higher altitudes, and the occasional alien sighting. Dress warm. Or don\'t.'
-  },
-  {
-    icon: Trees,
-    title: 'Quaint Streets',
-    desc: 'Colorful houses, cardboard cutout charm, and plenty of gossip by the bus stop.'
-  },
-  {
-    icon: Snowflake,
-    title: 'Endless Winters',
-    desc: 'Winter is practically a personality trait here. Snowball fights are a contact sport.'
-  }
-];
+const Feature = ({ icon: Icon, title, children }) => (
+  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="flex items-center gap-3">
+      <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 text-white shadow-md">
+        <Icon className="h-5 w-5" />
+      </span>
+      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+    </div>
+    <p className="mt-3 text-slate-600">{children}</p>
+  </div>
+);
 
 export default function TownShowcase() {
   return (
-    <section id="town" className="relative py-20 bg-gradient-to-b from-[#a2d9ff] to-[#e6f6ff]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-black drop-shadow-[0_2px_0_#fff]">The Town</h2>
-        <p className="mt-2 text-black/70 max-w-2xl">
-          Nestled in the Rockies, South Park is equal parts chaos and charm. Here are a few things you might stumble into.
-        </p>
+    <section id="town" className="relative z-10 -mt-8 bg-gradient-to-b from-white via-white to-emerald-50 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">The Town</h2>
+          <p className="mt-2 text-slate-600">Nestled in the Colorado Rockies, South Park is equal parts cozy and chaotic.</p>
+        </div>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f) => (
-            <div key={f.title} className="group rounded-2xl bg-white shadow-[0_6px_0_#000] border border-black/10 p-6 transition transform hover:-translate-y-1">
-              <div className="w-12 h-12 rounded-xl bg-yellow-300 flex items-center justify-center shadow-[0_4px_0_#000]">
-                <f.icon className="w-6 h-6 text-black" />
-              </div>
-              <h3 className="mt-4 text-xl font-extrabold text-black">{f.title}</h3>
-              <p className="mt-2 text-black/70">{f.desc}</p>
-            </div>
-          ))}
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Feature icon={MapPin} title="Main Street">
+            Grab a cup of cocoa and say hi to the locals. Rumor has it, something weird happens every Tuesday.
+          </Feature>
+          <Feature icon={Mountain} title="Rocky Peaks">
+            Snow-capped serenity with postcard views. Dress warm and watch for the occasional musical number.
+          </Feature>
+          <Feature icon={Trees} title="Evergreen Trails">
+            Wander under towering pines and find hidden paths to your next adventure.
+          </Feature>
         </div>
       </div>
     </section>

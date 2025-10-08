@@ -1,55 +1,43 @@
+import React from 'react';
 import { Sparkles, Video, MessageSquare } from 'lucide-react';
 
-const highlights = [
-  {
-    icon: Sparkles,
-    title: 'Satire Central',
-    desc: 'Where current events get roasted over a campfire of sarcasm.'
-  },
-  {
-    icon: Video,
-    title: 'Paper-Cut Aesthetic',
-    desc: 'A DIY animation look that became a cultural icon.'
-  },
-  {
-    icon: MessageSquare,
-    title: 'Quips & Quotes',
-    desc: 'Lines you\'ll repeat forever, sometimes at inappropriate times.'
-  }
-];
+const Card = ({ icon: Icon, title, children }) => (
+  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="flex items-center gap-3">
+      <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-sky-500 to-emerald-500 text-white shadow-md">
+        <Icon className="h-5 w-5" />
+      </span>
+      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+    </div>
+    <p className="mt-3 text-slate-600">{children}</p>
+  </div>
+);
 
 export default function Highlights() {
   return (
-    <section id="highlights" className="relative py-20 bg-[#fef9c3]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-start gap-10">
-          <div className="flex-1">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-black drop-shadow-[0_2px_0_#fff]">Highlights</h2>
-            <p className="mt-2 text-black/70 max-w-2xl">
-              A quick tour through what makes this little mountain town such a big deal in pop culture.
+    <section id="highlights" className="bg-white py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-3">
+          <div className="space-y-6 lg:col-span-2">
+            <Card icon={Sparkles} title="Local Legends">
+              Tall tales travel fast in these parts. Some are true, others are just fun to retell by the fire.
+            </Card>
+            <Card icon={Video} title="Cartoony Charm">
+              The flat cut-out style may be simple, but the laughs are layered. Expect the unexpected.
+            </Card>
+            <Card icon={MessageSquare} title="Town Gossip">
+              From schoolyard rumors to mayoral mishaps, there’s always something to chat about.
+            </Card>
+          </div>
+          <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+            <h3 className="text-lg font-semibold text-emerald-900">Did you know?</h3>
+            <p className="mt-2 text-emerald-800">
+              At 7,000 feet above sea level, cocoa tastes better and jokes land harder. That’s science.
             </p>
-
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {highlights.map((h) => (
-                <div key={h.title} className="rounded-2xl bg-white p-6 border border-black/10 shadow-[0_6px_0_#000]">
-                  <div className="w-12 h-12 rounded-xl bg-black text-yellow-300 flex items-center justify-center shadow-[0_4px_0_#000]">
-                    <h.icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="mt-3 text-xl font-extrabold text-black">{h.title}</h3>
-                  <p className="mt-2 text-black/70">{h.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="w-full lg:w-[420px] bg-white rounded-2xl border border-black/10 shadow-[0_8px_0_#000] p-6">
-            <h3 className="text-xl font-extrabold text-black">Did you know?</h3>
-            <ul className="mt-4 space-y-3 list-disc list-inside text-black/80">
-              <li>South Park started as a crude cutout animation short.</li>
-              <li>Set in a fictional Colorado town with real mountain vibes.</li>
-              <li>Known for sharp satire and a fearless sense of humor.</li>
-            </ul>
-          </div>
+            <a href="#contact" className="mt-4 inline-block rounded-full bg-emerald-600 px-4 py-2 text-white shadow hover:bg-emerald-700">
+              Say Hello
+            </a>
+          </aside>
         </div>
       </div>
     </section>

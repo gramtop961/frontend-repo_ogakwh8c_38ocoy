@@ -1,25 +1,29 @@
+import React from 'react';
 import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section id="explore" className="relative h-[90vh] w-full overflow-hidden">
+    <section id="home" className="relative h-[90vh] w-full overflow-hidden">
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/DXbF9O9nWRPNwlwF/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <Spline
+          scene="https://prod.spline.design/6u1YIdx9y5q-1n82/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#6fb2d2]/60 via-transparent to-transparent pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-16">
-        <div className="bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-[0_8px_0_#000] border border-black/10 max-w-xl">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-black drop-shadow-[0_2px_0_#fff]">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-4 pb-14 sm:px-6 lg:px-8">
+        <div className="w-full rounded-2xl border border-white/40 bg-white/70 p-6 shadow-xl backdrop-blur supports-[backdrop-filter]:bg-white/60 sm:p-8">
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
             Welcome to South Park
           </h1>
-          <p className="mt-3 text-lg text-black/80">
-            A small mountain town with big personalities. Discover snowy peaks, quirky locals, and an unforgettable vibe.
+          <p className="mt-3 max-w-2xl text-slate-700 sm:text-lg">
+            A tiny mountain town with big stories, quirky neighbors, and more adventures than you can shake a winter hat at.
           </p>
-          <div className="mt-6 flex gap-3">
-            <a href="#highlights" className="inline-flex items-center px-5 py-3 rounded-xl bg-yellow-300 text-black font-extrabold shadow-[0_4px_0_#000] hover:translate-y-[1px] transition">See Highlights</a>
-            <a href="#town" className="inline-flex items-center px-5 py-3 rounded-xl bg-white text-black font-extrabold border-2 border-black hover:bg-black hover:text-yellow-300 transition">Meet the Town</a>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="#town" className="rounded-full bg-slate-900 px-5 py-2 text-white shadow hover:bg-slate-800">Explore the Town</a>
+            <a href="#highlights" className="rounded-full border border-slate-300 bg-white px-5 py-2 text-slate-900 hover:border-slate-400">See Highlights</a>
           </div>
         </div>
       </div>

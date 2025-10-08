@@ -1,14 +1,15 @@
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TownShowcase from './components/TownShowcase';
 import Highlights from './components/Highlights';
 import Footer from './components/Footer';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-[#b3e5ff] text-black font-['IBM Plex Sans',Inter,system-ui,sans-serif]">
+    <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-white font-[Inter] text-slate-800">
       <Navbar />
-      <main className="pt-16">
+      <main>
         <Hero />
         <TownShowcase />
         <Highlights />
@@ -17,5 +18,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
